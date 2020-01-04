@@ -1,10 +1,19 @@
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 public class hs extends JFrame {
@@ -16,7 +25,7 @@ public class hs extends JFrame {
 	private JPanel contentPane;
 	public float h,w,bmi;
 	private JLabel lblHealthStatus;
-	public static String s;
+	public static String s,s1;
 	public static JLabel l0,l7,l8;
 	/**
 	 * Launch the application.
@@ -32,6 +41,10 @@ public class hs extends JFrame {
 				}
 			}
 		});
+	}
+	
+	public void dis() {
+		dispose();
 	}
 
 	/**
@@ -79,6 +92,34 @@ public class hs extends JFrame {
 		lblTdee.setBounds(37, 146, 66, 25);
 		contentPane.add(lblTdee);
 		
+		JLabel lblEdit = new JLabel("Edit?");
+		lblEdit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				/*new frame*/
+				hi fr1 = new hi();
+				hi.s1=s1;
+				fr1.setVisible(true);
+				dis();
+			}
+		});
+		lblEdit.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblEdit.setBounds(599, 25, 46, 14);
+		contentPane.add(lblEdit);
+		
+		//Image
+		BufferedImage img=null;
+		try {
+			img = ImageIO.read(new File("C:/Users/root/eclipse-workspace new/Health/Media/4.jpg"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			System.out.println("img");
+		}
+		Image dimg=img.getScaledInstance(707,505,Image.SCALE_SMOOTH);
+		ImageIcon ii=new ImageIcon(dimg);
+		JLabel bg = new JLabel(ii);
+		bg.setBounds(0, 0, 691, 467);
+		contentPane.add(bg);
 	
 	}
 }

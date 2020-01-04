@@ -2,17 +2,27 @@ import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.UIManager;
+
+
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -66,6 +76,7 @@ public class Health {
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
 		
 		JLabel lblName = new JLabel("Name");
 		lblName.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -223,7 +234,21 @@ public class Health {
 		
 		l0 = new JLabel("");
 		l0.setBounds(339, 354, 319, 33);
+		
+		//Image
+		BufferedImage img=null;
+		try {
+			img = ImageIO.read(new File("C:/Users/root/eclipse-workspace new/Health/Media/0.jpg"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			System.out.println("img");
+		}
+		Image dimg=img.getScaledInstance(707,505,Image.SCALE_SMOOTH);
+		ImageIcon ii=new ImageIcon(dimg);
 		frame.getContentPane().add(l0);
+		JLabel bg = new JLabel(ii);
+		bg.setBounds(0, 0, 691, 467);
+		frame.getContentPane().add(bg);
 		
 	}
 }

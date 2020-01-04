@@ -5,10 +5,17 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,7 +31,7 @@ public class rega extends JFrame {
 	private static final long serialVersionUID = 1;
 	public static JTextField t1;
 	private JPasswordField t2;
-	public String s1,s2;
+	public static String s1,s2;
 
 	/**
 	 * Launch the application.
@@ -118,6 +125,7 @@ public class rega extends JFrame {
 					//new frame
 					hs fr2 = new hs();
 					//hs.l0.setText("Hi ,"+rega.t1.getText());
+					hs.s1=s1;
 					hs.l7.setText(s4);
 					hs.l8.setText(s5);
 					
@@ -138,6 +146,20 @@ public class rega extends JFrame {
 		});
 		btnLogin.setBounds(576, 318, 89, 23);
 		contentPane.add(btnLogin);	
+		
+		//Image
+				BufferedImage img=null;
+				try {
+					img = ImageIO.read(new File("C:/Users/root/eclipse-workspace new/Health/Media/2.jpg"));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+					System.out.println("img");
+				}
+				Image dimg=img.getScaledInstance(707,505,Image.SCALE_SMOOTH);
+				ImageIcon ii=new ImageIcon(dimg);
+				JLabel bg = new JLabel(ii);
+				bg.setBounds(0, 0, 691, 467);
+				contentPane.add(bg);
 	
 	}
 }

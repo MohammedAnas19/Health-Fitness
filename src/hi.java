@@ -6,15 +6,22 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
@@ -360,7 +367,19 @@ public class hi extends JFrame {
 		});
 		btnNext.setBounds(566, 404, 89, 23);
 		contentPane.add(btnNext);
-		
+		//Image
+		BufferedImage img=null;
+		try {
+			img = ImageIO.read(new File("C:/Users/root/eclipse-workspace new/Health/Media/5.jpg"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			System.out.println("img");
+		}
+		Image dimg=img.getScaledInstance(707,505,Image.SCALE_SMOOTH);
+		ImageIcon ii=new ImageIcon(dimg);
+		JLabel bg = new JLabel(ii);
+		bg.setBounds(0, 0, 691, 467);
+		contentPane.add(bg);	
 
 	}
 }
