@@ -111,6 +111,7 @@ public class hs extends JFrame {
 		BufferedImage img=null;
 		try {
 			img = ImageIO.read(new File("C:/Users/root/eclipse-workspace new/Health/Media/4.jpg"));
+			//img = ImageIO.read(new File("C:/Users/ADMIN/Downloads/Health/Media/4.jpg"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 			System.out.println("img");
