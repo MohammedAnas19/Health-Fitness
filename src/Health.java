@@ -239,6 +239,7 @@ public class Health {
 		BufferedImage img=null;
 		try {
 			img = ImageIO.read(new File("C:/Users/root/eclipse-workspace new/Health/Media/0.jpg"));
+			//img = ImageIO.read(new File("C:/Users/ADMIN/Downloads/Health/Media/0.jpg"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 			System.out.println("img");
