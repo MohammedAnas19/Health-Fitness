@@ -212,7 +212,7 @@ public class Health {
 
 					else { 
 						int year=Integer.parseInt(t4.getText());
-						s4=String.valueOf((2019-year));
+						s4=String.valueOf((2020-year));
 						st.executeUpdate("insert into log (email,pwd,name,age,sx) values('"+s1+"','"+s2+"','"+s3+"','"+s4+"','"+s9+"')");
 						
 						/*new frame*/
